@@ -49,12 +49,6 @@
   }
   function openWhatsApp() {
     const msg = encodeURIComponent("Hola Asfink, vengo desde el sitio web y me gustaría conversar sobre financiamiento.");
-    // Disparar evento GA4 para conversión (Google Ads / Analytics)
-    if (typeof gtag === 'function') {
-      gtag('event', 'lead_whatsapp', {
-        'origen': window.location.pathname
-      });
-    }
     window.open('https://wa.me/56966593109?text=' + msg, '_blank');
   }
 

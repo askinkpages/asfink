@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aprende &mdash; Asfink</title>
-<meta name="description" content="Asfink - Gestion integral de productos financieros para PyMEs en Chile.">
+<title>Agenda una reunión &mdash; Asfink</title>
+<meta name="description" content="Agenda una reunión gratuita con el equipo de Asfink. Conversemos sobre tus necesidades de financiamiento.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -23,8 +23,8 @@
       <a class="nav-tab" href="index.html">Inicio</a>
       <a class="nav-tab" href="preevaluacion.html">Pre-evaluación</a>
       <a class="nav-tab" href="productos.html">Productos</a>
-      <a class="nav-tab active" href="aprende.html">Aprende</a>
-      <a class="nav-tab" href="agenda.html">Agenda reunión</a>
+      <a class="nav-tab" href="aprende.html">Aprende</a>
+      <a class="nav-tab active" href="agenda.html">Agenda reunión</a>
     </div>
     <div class="nav-cta">
       <a class="btn btn-primary" href="preevaluacion.html">Pre-evaluación</a>
@@ -50,8 +50,8 @@
       <a class="drawer-link" href="index.html">Inicio</a>
       <a class="drawer-link" href="preevaluacion.html">Pre-evaluación</a>
       <a class="drawer-link" href="productos.html">Productos</a>
-      <a class="drawer-link drawer-link-active" href="aprende.html">Aprende</a>
-      <a class="drawer-link" href="agenda.html">Agenda reunión</a>
+      <a class="drawer-link" href="aprende.html">Aprende</a>
+      <a class="drawer-link drawer-link-active" href="agenda.html">Agenda reunión</a>
     </nav>
     <div class="drawer-foot">
       <a class="btn btn-primary btn-lg drawer-cta" href="preevaluacion.html" style="width:100%;justify-content:center;">Empezar pre-evaluación →</a>
@@ -63,41 +63,67 @@
   </aside>
 </nav>
 
-<div class="blog-wrap">
-    <div class="blog-intro">
-      <div class="section-kicker">Aprende</div>
-      <h1 style="font-size: clamp(40px, 5vw, 64px); color: var(--navy-900); margin-bottom: 16px;">Guías para <em style="font-style: italic; color: var(--cyan-dim); font-weight: 400;">decidir mejor</em>.</h1>
-      <p style="font-size: 17px; color: var(--ink-60); max-width: 600px;">Contenido claro y sin jerga sobre financiamiento, liquidez y gestión financiera para pymes. Escrito por quienes negocian con los bancos todos los días.</p>
+<!-- ====== HERO AGENDA ====== -->
+<section class="ag-hero">
+  <div class="ag-hero-inner">
+    <div class="ag-hero-text">
+      <div class="section-kicker" style="color: var(--cyan-dim);">Agenda una reunión</div>
+      <h1>Conversemos sobre tu <em>financiamiento</em>.</h1>
+      <p class="ag-hero-sub">
+        Reserva 30 minutos con nuestro equipo para entender mejor tus necesidades y conocer las opciones de financiamiento que mejor se ajustan a tu pyme. Sin costo y sin compromiso.
+      </p>
+
+      <ul class="ag-hero-features">
+        <li><span class="check">✓</span> <span><strong>30 minutos</strong> por videollamada (Google Meet)</span></li>
+        <li><span class="check">✓</span> <span><strong>Sin costo</strong> ni compromiso</span></li>
+        <li><span class="check">✓</span> <span><strong>Confidencial</strong>: tu información se trata con total discreción</span></li>
+        <li><span class="check">✓</span> <span>Te confirmamos por correo con el <strong>link de Google Meet</strong></span></li>
+      </ul>
+
+      <div class="ag-hero-alt">
+        ¿Prefieres otro canal? <a onclick="openWhatsApp()" style="color:var(--cyan-dim); cursor:pointer; font-weight:500;">Escríbenos por WhatsApp →</a>
+      </div>
     </div>
 
-    <div class="blog-cards">
-      <a class="bc" href="aprende-credito.html">
-        <div class="bc-cover"><span class="bc-cat">Guía práctica</span></div>
-        <div class="bc-body">
-          <h3>Cómo preparar tu empresa antes de pedir un crédito</h3>
-          <p>Los 6 puntos que un banco revisa antes de aprobar, y cómo llegar preparado para negociar mejores condiciones.</p>
-          <div class="bc-meta">Lectura de 6 min · Financiamiento <span class="bc-read">&middot; Leer &rarr;</span></div>
-        </div>
-      </a>
-      <a class="bc" href="aprende-factoring.html">
-        <div class="bc-cover"><span class="bc-cat">Conceptos</span></div>
-        <div class="bc-body">
-          <h3>Qué es el factoring y cuándo le conviene a tu pyme</h3>
-          <p>Si vendes a 30, 60 o 90 días, el factoring puede liberar caja sin endeudarte. Te explicamos cómo funciona en simple.</p>
-          <div class="bc-meta">Lectura de 5 min · Liquidez <span class="bc-read">&middot; Leer &rarr;</span></div>
-        </div>
-      </a>
-      <a class="bc" href="aprende-errores.html">
-        <div class="bc-cover"><span class="bc-cat">Buenas prácticas</span></div>
-        <div class="bc-body">
-          <h3>5 errores comunes al buscar financiamiento (y cómo evitarlos)</h3>
-          <p>Pedir al banco equivocado, no comparar, descuidar la carpeta tributaria: los tropiezos que encarecen tu crédito.</p>
-          <div class="bc-meta">Lectura de 5 min · Estrategia <span class="bc-read">&middot; Leer &rarr;</span></div>
-        </div>
-      </a>
+    <div class="ag-calendly-card">
+      <div class="ag-calendly-head">
+        <div class="ag-calendly-title">Selecciona un horario</div>
+        <div class="ag-calendly-sub">Horarios en tiempo real desde nuestra agenda</div>
+      </div>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/contacto-asfink/30min?hide_gdpr_banner=1&primary_color=14b8c4&text_color=0f2742"
+           style="min-width:320px;height:760px;">
+      </div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
     </div>
-</div>
+  </div>
+</section>
 
+<!-- ====== INFO ADICIONAL ====== -->
+<section class="ag-info">
+  <div class="ag-info-inner">
+    <h2>Qué pasa <em>después</em> de agendar</h2>
+    <div class="ag-info-grid">
+      <div class="ag-info-step">
+        <div class="ag-step-num">1</div>
+        <h3>Te enviamos la invitación</h3>
+        <p>Recibirás un correo con la confirmación, el día, hora y un enlace de Google Meet para conectarte.</p>
+      </div>
+      <div class="ag-info-step">
+        <div class="ag-step-num">2</div>
+        <h3>Hablemos 30 minutos</h3>
+        <p>Conversamos sobre la situación de tu empresa, tus necesidades de financiamiento y resolvemos tus dudas.</p>
+      </div>
+      <div class="ag-info-step">
+        <div class="ag-step-num">3</div>
+        <h3>Plan de acción</h3>
+        <p>Si decidimos seguir, te enviamos el detalle de los siguientes pasos y los documentos que vamos a necesitar.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <footer>
   <div class="footer-inner">
     <div>
@@ -183,56 +209,6 @@
     <div class="chat-handoff">
       <span>💬</span>
       <span>¿Prefieres hablar con un ejecutivo? <a onclick="openWhatsApp()">Cambia a WhatsApp →</a></span>
-    </div>
-  </div>
-</div>
-
-
-<!-- FLOATING BUTTONS + CHAT BOT -->
-<div class="float-stack" id="floatStack">
-  <button class="float-btn float-wzp" onclick="openWhatsApp()">
-    <span class="ico">W</span> WhatsApp
-  </button>
-  <button class="float-btn float-bot" onclick="openChat()" style="position: relative;">
-    <span class="ico">&#10022;</span> Habla con Aski
-    <span class="float-badge">1</span>
-  </button>
-</div>
-
-<div class="chat-panel" id="chatPanel">
-  <div class="chat-head">
-    <div class="chat-avatar">P</div>
-    <div class="chat-head-text">
-      <div class="name">Aski &middot; Asistente Asfink</div>
-      <div class="status">En l&iacute;nea &middot; Responde al instante</div>
-    </div>
-    <button class="chat-close" onclick="closeChat()">&times;</button>
-  </div>
-  <div class="chat-body" id="chatBody">
-    <div class="chat-msg bot">
-      &iexcl;Hola! &#128075; Soy Aski, la asistente virtual de Asfink. Estoy ac&aacute; para orientarte sobre financiamiento, requisitos, productos y nuestro proceso.
-      <span class="ts">15:42</span>
-    </div>
-    <div class="chat-msg bot">
-      &iquest;En qu&eacute; te puedo ayudar hoy?
-      <span class="ts">15:42</span>
-    </div>
-  </div>
-  <div class="chat-quick" id="chatQuick">
-    <button class="quick-btn" onclick="sendQuick('&iquest;C&oacute;mo funciona Asfink?')">&iquest;C&oacute;mo funciona?</button>
-    <button class="quick-btn" onclick="sendQuick('&iquest;Qu&eacute; documentos necesito?')">Documentos necesarios</button>
-    <button class="quick-btn" onclick="sendQuick('&iquest;Cu&aacute;nto cobran de honorarios?')">Honorarios</button>
-    <button class="quick-btn" onclick="sendQuick('Quiero un cr&eacute;dito')">Quiero un cr&eacute;dito</button>
-    <button class="quick-btn" onclick="sendQuick('&iquest;En qu&eacute; consiste FOGAPE?')">&iquest;Qu&eacute; es FOGAPE?</button>
-  </div>
-  <div class="chat-foot">
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." onkeypress="if(event.key==='Enter') sendMsg()">
-      <button class="chat-send" onclick="sendMsg()">&rarr;</button>
-    </div>
-    <div class="chat-handoff">
-      <span>&#128172;</span>
-      <span>&iquest;Prefieres hablar con un ejecutivo? <a onclick="openWhatsApp()">Cambia a WhatsApp &rarr;</a></span>
     </div>
   </div>
 </div>
