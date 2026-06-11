@@ -366,7 +366,7 @@
 
       // Nombres con etiqueta para que en Drive se distingan claramente
       var ext = function (n) { var p = n.lastIndexOf('.'); return p > -1 ? n.substring(p) : ''; };
-      var nombre1 = 'Carpeta Tributaria - ' + f1.name;
+      var nombre1 = 'Carpeta Tributaria' + ext(f1.name);
       var nombre2 = 'Balance ' + ANIO_BAL_1 + ext(f2.name);
       var nombre3 = 'Balance ' + ANIO_BAL_2 + ext(f3.name);
 
