@@ -189,14 +189,25 @@
       </div>
 
       <div class="up-file">
-        <label>Dos últimos balances / estado de resultados <span class="req">— requerido</span></label>
+        <label id="lbl-bal-1">Balance / estado de resultados <span class="req">— requerido</span></label>
         <label class="upload-zone" id="uz-2" for="file-2">
           <div class="upload-icon">↓</div>
           <div class="upload-title">Haz clic para seleccionar</div>
-          <div class="upload-hint">PDF o Excel · idealmente el más reciente · máx. 10 MB</div>
+          <div class="upload-hint">PDF o Excel · máx. 10 MB</div>
           <div class="upload-meta" id="uz-2-meta"></div>
         </label>
         <input type="file" id="file-2" accept=".pdf,.xls,.xlsx" style="display:none">
+      </div>
+
+      <div class="up-file">
+        <label id="lbl-bal-2">Balance / estado de resultados <span class="req">— requerido</span></label>
+        <label class="upload-zone" id="uz-3" for="file-3">
+          <div class="upload-icon">↓</div>
+          <div class="upload-title">Haz clic para seleccionar</div>
+          <div class="upload-hint">PDF o Excel · máx. 10 MB</div>
+          <div class="upload-meta" id="uz-3-meta"></div>
+        </label>
+        <input type="file" id="file-3" accept=".pdf,.xls,.xlsx" style="display:none">
       </div>
 
       <div class="up-progress" id="up-progress">
@@ -231,6 +242,8 @@
 
   var TOKEN_ACTUAL = null;
   var MAX_MB = 10;
+  var ANIO_BAL_1 = null;   // año del primer balance (año actual - 1)
+  var ANIO_BAL_2 = null;   // año del segundo balance (año actual - 2)
 
   // 1. Validar token al cargar la página
   (function init() {
@@ -275,6 +288,14 @@
     document.getElementById('state-loading').style.display = 'none';
     document.getElementById('up-nombre').textContent = nombre;
     document.getElementById('up-empresa').textContent = empresa;
+
+    // Años automáticos: año actual - 1 y año actual - 2 (cambian solos cada año)
+    var anioActual = new Date().getFullYear();
+    ANIO_BAL_1 = anioActual - 1;
+    ANIO_BAL_2 = anioActual - 2;
+    document.getElementById('lbl-bal-1').innerHTML = 'Balance ' + ANIO_BAL_1 + ' <span class="req">— requerido</span>';
+    document.getElementById('lbl-bal-2').innerHTML = 'Balance ' + ANIO_BAL_2 + ' <span class="req">— requerido</span>';
+
     document.getElementById('state-form').style.display = 'block';
   }
 
@@ -301,11 +322,13 @@
   }
   configurarUpload('uz-1', 'file-1');
   configurarUpload('uz-2', 'file-2');
+  configurarUpload('uz-3', 'file-3');
 
   function verificarFormulario() {
     var f1 = document.getElementById('file-1').files[0];
     var f2 = document.getElementById('file-2').files[0];
-    document.getElementById('up-submit').disabled = !(f1 && f2);
+    var f3 = document.getElementById('file-3').files[0];
+    document.getElementById('up-submit').disabled = !(f1 && f2 && f3);
   }
 
   // 3. Convertir archivo a Base64 (Apps Script no recibe binarios crudos vía fetch)
@@ -325,7 +348,8 @@
   function enviarArchivos() {
     var f1 = document.getElementById('file-1').files[0];
     var f2 = document.getElementById('file-2').files[0];
-    if (!f1 || !f2) return;
+    var f3 = document.getElementById('file-3').files[0];
+    if (!f1 || !f2 || !f3) return;
 
     var btn = document.getElementById('up-submit');
     var prog = document.getElementById('up-progress');
@@ -336,15 +360,22 @@
     prog.classList.add('show'); bar.style.width = '10%';
     status.className = 'up-status'; status.textContent = 'Preparando archivos…';
 
-    Promise.all([fileToBase64(f1), fileToBase64(f2)]).then(function (b64s) {
+    Promise.all([fileToBase64(f1), fileToBase64(f2), fileToBase64(f3)]).then(function (b64s) {
       bar.style.width = '40%';
       status.textContent = 'Enviando de forma segura…';
+
+      // Nombres con etiqueta para que en Drive se distingan claramente
+      var ext = function (n) { var p = n.lastIndexOf('.'); return p > -1 ? n.substring(p) : ''; };
+      var nombre1 = 'Carpeta Tributaria - ' + f1.name;
+      var nombre2 = 'Balance ' + ANIO_BAL_1 + ext(f2.name);
+      var nombre3 = 'Balance ' + ANIO_BAL_2 + ext(f3.name);
 
       var payload = {
         tipo: 'subida_documentos',
         token: TOKEN_ACTUAL,
-        archivo1_nombre: f1.name, archivo1_mime: f1.type || 'application/pdf', archivo1_b64: b64s[0],
-        archivo2_nombre: f2.name, archivo2_mime: f2.type || 'application/pdf', archivo2_b64: b64s[1]
+        archivo1_nombre: nombre1, archivo1_mime: f1.type || 'application/pdf', archivo1_b64: b64s[0],
+        archivo2_nombre: nombre2, archivo2_mime: f2.type || 'application/pdf', archivo2_b64: b64s[1],
+        archivo3_nombre: nombre3, archivo3_mime: f3.type || 'application/pdf', archivo3_b64: b64s[2]
       };
 
       return fetch(APPS_SCRIPT_URL, {
